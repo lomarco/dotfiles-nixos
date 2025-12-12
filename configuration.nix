@@ -40,6 +40,8 @@
     zsh.enable = true;
     gnupg.agent.enable = true;
     firefox.enable = true;
+    sway.enable = true;
+    vim.enable = true;
   };
 
   services = {
