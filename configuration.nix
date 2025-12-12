@@ -13,8 +13,12 @@
 
   networking = {
     hostName = "mefi";
-    networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+      dns = "none";
+    };
+    nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" ];
     proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   };
 
