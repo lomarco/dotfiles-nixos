@@ -7,18 +7,12 @@
         type = "gpt";
         partitions = {
           ESP = {
-            size = "512M";
             type = "EF00";
+            size = "250M";
             content = {
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-            };
-          };
-          swap = {
-            size = "8G";
-            content = {
-              type = "swap";
             };
           };
           root = {
@@ -27,7 +21,6 @@
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
-              mountOptions = [ "defaults" "noatime" "discard" ];
             };
           };
         };
