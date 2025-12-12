@@ -1,50 +1,25 @@
 {
-  description = "Modern NixOS configuration with disko and flakes";
+  description = "Swag flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    
-    nix.url = "github:NixOS/nix";
-    
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    systems.url = "github:nix-systems/default";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { flake-parts, systems, ... } @ inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-      
-      perSystem = { config, self', pkgs, system, ... }: {
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nixpkgs-fmt
-            nil
-            nixd
-          ];
-        };
-      };
-
-      flake = {
-        nixosConfigurations = {
-          "mefi" = inputs.nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            
-            modules = [
-              {
-                nix.settings = {
-                  experimental-features = [ "nix-command" "flakes" ];
-                  auto-optimise-store = true;
-                };
-                
-                nix.registry.nixpkgs.flake = inputs.nixpkgs;
-                nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-              }
-              
-              ./hardware-configuration.nix
-              ./configuration.nix
-            ];
-          };
-        };
-      };
+  outputs = { self, nixpkgs, disko, ...} @inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
+      specialArgs = { inherit inputs; };
+    in {
+      nixosConfigurations.mefi = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+        disko.nixosModules.disko
+        ./disko.nix
+        ./configuration.nix
+      ];
     };
+  };
 }
