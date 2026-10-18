@@ -149,7 +149,6 @@
     virt-manager
     tigervnc
     net-tools
-    zk
     yarn
     glow
     stow
