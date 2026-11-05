@@ -61,9 +61,9 @@
 
     i2pd = {
       enable = true;
-      proto = {
-        http.enable = true;
-        httpProxy.enable = true;
+      settings = {
+        http.enabled = true;
+        httpproxy.enabled = true;
       };
     };
   };
