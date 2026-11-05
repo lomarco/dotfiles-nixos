@@ -89,7 +89,7 @@
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinetry-tty;
+      pinentryPackage = pkgs.pinentry-tty;
     };
 
     ssh.startAgent = false;
