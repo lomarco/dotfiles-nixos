@@ -1,7 +1,7 @@
 {
   disko.devices = {
-    disk.nvme0n1 = {
-      device = "/dev/nvme0n1";
+    disk.sda = { # disk.nvme0n1
+      device = "/dev/sda"; # /dev/nvme0n1
       type = "disk";
       content = {
         type = "gpt";
@@ -13,14 +13,17 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
+              mountOptions = [ "umask=0077" ];
             };
           };
+
           root = {
-            size = "100%";
+            size = "40G";
             content = {
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
+              mountOptions = [ "noatime" ];
             };
           };
         };
