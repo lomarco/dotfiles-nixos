@@ -57,14 +57,14 @@
       servers = [
         "time.cloudflare.com"
       ];
+    };
 
-      i2pd = {
-        enable = true;
-        address = "127.0.0.1";
-        proto = {
-          http.enable = true;
-          httpProxy.enable = true;
-        };
+    i2pd = {
+      enable = true;
+      address = "127.0.0.1";
+      proto = {
+        http.enable = true;
+        httpProxy.enable = true;
       };
     };
   };
