@@ -45,10 +45,28 @@
 
   time.timeZone = "Etc/GMT-7";
 
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
+  services = {
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.enable = true;
+    };
+
+    timesyncd = {
+      enable = true;
+      servers = [
+        "time.cloudflare.com"
+      ];
+
+      i2pd = {
+        enable = true;
+        address = "127.0.0.1";
+        proto = {
+          http.enable = true;
+          httpProxy.enable = true;
+        };
+      };
+    };
   };
 
   users.users = {
