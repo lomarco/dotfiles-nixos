@@ -79,7 +79,10 @@
   hardware.graphics.enable = true;
 
   programs = {
-    sway.enable = true;
+    sway =  {
+      enable = true;
+      xwayland.enable = false;
+    };
     zsh.enable = true;
     nh = {
       enable = true;
@@ -99,15 +102,71 @@
   environment.systemPackages = with pkgs; [
     waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
 
+    sudo
+    vim
     neovim
     git
-    tmux
-    foot
-    wmenu
+    gnumake
+    fasm
+    llvm
+    clang
     i3status-rust
+    wget
+    links
+    wlsunset
+    grim
+    brightnessctl
+    slurp
+    foot
+    tmux
+    lldb
+    translate-shell
+    # bluez
+    pass
     ncdu
+    rsync
     htop
+    bc
+    mpv
+    swayimg
+    swaybg
+    lld
+    wmenu
+    less
+    openssh
+    wl-clipboard
+    cmake
+    nmap
+    hyperfine
+    rustup
+    swayidle
+    swaylock
+    pavucontrol
+    valgrind
+    fzf
+    traceroute
+    xxd
+    ripgrep
+    zathura
+    nasm
+    yazi
+    tcpdump
+    pandoc-cli
     stow
+    pass-otp
+    ninja
+    unzip
+    bluetui
+    tokei
+    usbutils
+    netcat
+    lsof
+    cliphist
+    iw
+    hyprpicker
+    ffmpeg
+    wf-recorder
+    git-lfs
     nixfmt
   ];
 

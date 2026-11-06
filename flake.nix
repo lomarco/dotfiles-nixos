@@ -2,7 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    waterfox.url = "github:Hythera/nix-waterfox";
+    waterfox = {
+      url = "github:Hythera/nix-waterfox";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     disko = {
       url = "github:nix-community/disko";
