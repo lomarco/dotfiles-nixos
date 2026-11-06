@@ -2,6 +2,7 @@
   disko.devices = {
     disk.main = {
       type = "disk";
+      device = "/dev/disk/by-id/nvme-KXG60ZNV512G_TOSHIBA_20OA70EWK93L";
       content = {
         type = "gpt";
         partitions = {
