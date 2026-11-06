@@ -113,8 +113,9 @@
     ssh.startAgent = false;
   };
 
+  nixpkgs.hostPlatform = "x86_64-linux";
   environment.systemPackages = with pkgs; [
-    waterfox.packages.${pkgs.system}.waterfox-bin
+    waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
     vim
     wget
     ncdu

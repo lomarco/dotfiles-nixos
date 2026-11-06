@@ -18,13 +18,10 @@
       ...
     }:
     let
-      system = "x86_64-linux";
       host = "mefi";
     in
     {
       nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
-        inherit system;
-
         specialArgs = {
           inherit waterfox;
         };
