@@ -11,7 +11,12 @@
   };
 
   outputs =
-    { nixpkgs, disko, waterfox, ... }:
+    {
+      nixpkgs,
+      disko,
+      waterfox,
+      ...
+    }:
     let
       system = "x86_64-linux";
       host = "mefi";
