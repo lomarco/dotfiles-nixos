@@ -74,6 +74,7 @@
       extraGroups = [
         "wheel"
         "docker"
+        "networkmanager"
       ];
       initialPassword = "dildo";
     };
