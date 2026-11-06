@@ -116,7 +116,6 @@
     clang
     i3status-rust
     wget
-    links
     wlsunset
     grim
     brightnessctl
@@ -126,7 +125,7 @@
     lldb
     translate-shell
     # bluez
-    pass
+    (pass.withExtensions (exts: [ exts.pass-otp ]))
     ncdu
     rsync
     htop
@@ -155,9 +154,7 @@
     nasm
     yazi
     tcpdump
-    pandoc-cli
     stow
-    pass-otp
     ninja
     unzip
     bluetui
@@ -171,6 +168,10 @@
     ffmpeg
     wf-recorder
     git-lfs
+    wlvncc
+    woomer
+    libnotify
+    fnott
     nixfmt
   ];
 
