@@ -1,6 +1,5 @@
 {
   pkgs,
-  waterfox,
   ...
 }:
 
@@ -106,8 +105,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
-
     vim
     neovim
     git
@@ -174,6 +171,7 @@
     libnotify
     fnott
     nixfmt
+    firefox
   ];
 
   fonts.packages = with pkgs; [
