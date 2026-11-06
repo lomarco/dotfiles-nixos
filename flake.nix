@@ -27,7 +27,7 @@
         modules = [
           ./${host}
           disko.nixosModules.disko
-          waterfox.packages.x86_64-linux.waterfox-bin
+          waterfox.packages.${system}.waterfox-bin
         ];
       };
     };
