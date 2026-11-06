@@ -19,9 +19,7 @@
           };
           swap = {
             size = "8G";
-            content = {
-              type = "swap";
-            };
+            content.type = "swap";
           };
           root = {
             size = "40G";

@@ -8,7 +8,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        editor = false;
+      };
       efi.canTouchEfiVariables = true;
     };
   };
@@ -19,21 +22,16 @@
         "nix-command"
         "flakes"
       ];
-
       auto-optimise-store = true;
       max-jobs = "auto";
       cores = 0;
     };
 
-    optimise = {
-      automatic = true;
-      dates = "weekly";
-    };
+    optimise.automatic = true;
   };
 
   networking = {
     hostName = "mefi";
-    firewall.enable = true;
     networkmanager = {
       enable = true;
       wifi.backend = "iwd";
@@ -53,13 +51,6 @@
       alsa.enable = true;
     };
 
-    timesyncd = {
-      enable = true;
-      servers = [
-        "time.cloudflare.com"
-      ];
-    };
-
     i2pd = {
       enable = true;
       settings = {
@@ -75,13 +66,7 @@
       shell = pkgs.zsh;
       extraGroups = [
         "wheel"
-        "storage"
-        "video"
-        "input"
-        "audio"
-        "power"
         "docker"
-        "networkmanager"
       ];
       initialPassword = "dildo";
     };
@@ -109,35 +94,21 @@
       enableSSHSupport = true;
       pinentryPackage = pkgs.pinentry-tty;
     };
-
-    ssh.startAgent = false;
   };
 
-  nixpkgs.hostPlatform = "x86_64-linux";
   environment.systemPackages = with pkgs; [
     waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
-    vim
-    wget
-    ncdu
-    sway
+
+    neovim
+    git
+    tmux
+    foot
     wmenu
     i3status-rust
-    foot
-    git
-    neovim
-    stow
-    gnumake
-    rustup
-    tmux
-    llvm
-    clang
-    lld
-    lldb
-    zsh
+    ncdu
     htop
+    stow
     nixfmt
-    gnupg
-    pinentry-tty
   ];
 
   fonts.packages = with pkgs; [ iosevka-bin ];
