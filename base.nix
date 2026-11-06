@@ -133,6 +133,8 @@
     zsh
     htop
     nixfmt
+    gnupg
+    pinentry-tty
   ];
 
   fonts.packages = with pkgs; [ iosevka-bin ];
