@@ -24,10 +24,14 @@
     {
       nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
         inherit system;
+
+        specialArgs = {
+          inherit waterfox;
+        };
+
         modules = [
           ./${host}
           disko.nixosModules.disko
-          waterfox.packages.${system}.waterfox-bin
         ];
       };
     };

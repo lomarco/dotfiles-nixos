@@ -1,5 +1,6 @@
 {
   pkgs,
+  waterfox,
   ...
 }:
 
@@ -113,6 +114,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    waterfox.packages.${pkgs.system}.waterfox-bin
     vim
     wget
     ncdu
