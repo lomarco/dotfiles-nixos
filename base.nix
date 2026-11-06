@@ -23,11 +23,7 @@
         "flakes"
       ];
       auto-optimise-store = true;
-      max-jobs = "auto";
-      cores = 0;
     };
-
-    optimise.automatic = true;
   };
 
   networking = {
@@ -49,6 +45,11 @@
   };
 
   time.timeZone = "Etc/GMT-7";
+
+  hardware = {
+    graphics.enable = true;
+    enableRedistributableFirmware = true;
+  };
 
   services = {
     pipewire = {
@@ -82,8 +83,6 @@
     };
   };
 
-  hardware.graphics.enable = true;
-
   programs = {
     sway = {
       enable = true;
@@ -108,7 +107,6 @@
   environment.systemPackages = with pkgs; [
     waterfox.packages.${pkgs.stdenv.hostPlatform.system}.waterfox-bin
 
-    sudo
     vim
     neovim
     git

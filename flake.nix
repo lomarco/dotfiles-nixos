@@ -11,6 +11,11 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-facter-modules = {
+      url = "github:numtide/nixos-facter-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +23,7 @@
       nixpkgs,
       disko,
       waterfox,
+      nixos-facter-modules,
       ...
     }:
     let
@@ -32,6 +38,10 @@
         modules = [
           ./${host}
           disko.nixosModules.disko
+          nixos-facter-modules.nixosModules.facter
+          {
+            config.facter.reportPath = ./facter.json;
+          }
         ];
       };
     };
