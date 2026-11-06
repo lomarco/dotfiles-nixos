@@ -40,6 +40,12 @@
       "1.1.1.1"
       "1.0.0.1"
     ];
+    wireless.iwd.settings = {
+      General = {
+        AddressRandomization = "network";
+        AddressRandomizationRange = "full";
+      };
+    };
   };
 
   time.timeZone = "Etc/GMT-7";
@@ -79,7 +85,7 @@
   hardware.graphics.enable = true;
 
   programs = {
-    sway =  {
+    sway = {
       enable = true;
       xwayland.enable = false;
     };
@@ -170,7 +176,9 @@
     nixfmt
   ];
 
-  fonts.packages = with pkgs; [ iosevka-bin ];
+  fonts.packages = with pkgs; [
+    iosevka-bin
+  ];
 
   system.stateVersion = "26.05";
 }
