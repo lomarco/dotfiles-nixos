@@ -56,7 +56,7 @@
       pulse.enable = true;
       alsa.enable = true;
     };
-    fstriml.enable = true;
+    fstrim.enable = true;
   };
 
   users.users = {
