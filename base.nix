@@ -104,6 +104,8 @@
     };
   };
 
+  documentation.enable = false;
+
   fonts.packages = with pkgs; [
     iosevka-bin
   ];
