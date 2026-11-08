@@ -92,6 +92,11 @@
     };
   };
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
+
   documentation.enable = false;
 
   fonts.packages = with pkgs; [
@@ -116,7 +121,7 @@
     tmux
     lldb
     translate-shell
-    # bluez
+    bluez
     (pass.withExtensions (exts: [ exts.pass-otp ]))
     ncdu
     rsync
