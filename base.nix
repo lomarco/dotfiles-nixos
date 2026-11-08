@@ -56,14 +56,6 @@
       pulse.enable = true;
       alsa.enable = true;
     };
-
-    i2pd = {
-      enable = true;
-      settings = {
-        http.enabled = true;
-        httpproxy.enabled = true;
-      };
-    };
   };
 
   users.users = {
