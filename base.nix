@@ -104,6 +104,10 @@
     };
   };
 
+  fonts.packages = with pkgs; [
+    iosevka-bin
+  ];
+
   environment.systemPackages = with pkgs; [
     vim
     neovim
@@ -172,10 +176,6 @@
     fnott
     nixfmt
     firefox
-  ];
-
-  fonts.packages = with pkgs; [
-    iosevka-bin
   ];
 
   system.stateVersion = "26.05";
