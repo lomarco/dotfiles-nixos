@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   modulesPath,
   ...
@@ -19,12 +18,16 @@
         "sd_mod"
         "usbhid"
       ];
+      kernelModules = [
+        "amdgpu"
+      ];
     };
-    kernelModules = [ "kvm-amd" ];
+
+    kernelModules = [
+      "kvm-amd"
+    ];
   };
 
-  swapDevices = [ ];
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  cpu.amd.updateMicrocode = true;
 }
