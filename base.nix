@@ -84,11 +84,6 @@
     zsh.enable = true;
     nh = {
       enable = true;
-      clean = {
-        enable = true;
-        dates = "weekly";
-        extraArgs = "--keep-since 2d --keep 3";
-      };
     };
     gnupg.agent = {
       enable = true;
