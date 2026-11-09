@@ -98,7 +98,6 @@
   };
 
   documentation.enable = false;
-  security.polkit.enable = false;
 
   fonts.packages = with pkgs; [
     iosevka-bin
