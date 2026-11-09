@@ -27,20 +27,20 @@
 
   networking = {
     hostName = "mefi";
-    networkmanager = {
+    wireless.iwd = {
       enable = true;
-      wifi.backend = "iwd";
+      settings = {
+        General = {
+          EnableNetworkConfiguration = true;
+          AddressRandomization = "network";
+          AddressRandomizationRange = "full";
+        };
+      };
     };
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
     ];
-    wireless.iwd.settings = {
-      General = {
-        AddressRandomization = "network";
-        AddressRandomizationRange = "full";
-      };
-    };
   };
 
   time.timeZone = "Etc/GMT-7";
@@ -66,7 +66,6 @@
       extraGroups = [
         "wheel"
         "docker"
-        "networkmanager"
       ];
       initialPassword = "dildo";
     };
