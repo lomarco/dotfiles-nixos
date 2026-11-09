@@ -27,6 +27,8 @@
 
   networking = {
     hostName = "mefi";
+    useDHCP = false;
+    dhcpcd.enable = false;
     wireless.iwd = {
       enable = true;
       settings = {
@@ -57,6 +59,7 @@
       alsa.enable = true;
     };
     fstrim.enable = true;
+    resolved.enable = true;
   };
 
   users.users = {
