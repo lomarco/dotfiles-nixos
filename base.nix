@@ -151,7 +151,6 @@
     traceroute
     xxd
     ripgrep
-    zathura
     nasm
     yazi
     tcpdump
