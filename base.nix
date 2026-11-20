@@ -116,6 +116,7 @@
     fasm
     llvm
     clang
+    clang-tools
     i3status-rust
     wget
     wlsunset
